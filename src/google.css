@@ -1,0 +1,110 @@
+:root {
+    --blue: oklch(63.04% 0.18 259.96);
+    --red:oklch(62.57% 0.2058 29.08);
+    --yellow:oklch(83.04% 0.1698 83.99);
+    --green: oklch(64.75% 0.1603 148.5);
+  }
+  
+
+  body {
+    background: #101418;
+  }
+  
+  @property --mixBlueRed {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 25%;
+  }
+  
+  @property --mixRedYellow {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 50%;
+  }
+  
+  @property --mixYellowGreen {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 75%;
+  }
+  
+  @property --mixGreenYellow {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+  }
+  
+  .googlelineAnimate {
+    position: absolute;
+    inset-inline-start: 50%;
+ inset-block-end: 50%;
+    transform: translate(-50%, 0);
+  }
+  
+  .googlelineAnimate .linebar.blur {
+    filter: blur(16px);
+  }
+  
+  .googlelineAnimate .linebar {
+    max-inline-size: 880px;
+    inline-size: 88dvw;
+    block-size: 5px;
+    background: linear-gradient(
+      to right,
+      var(--blue) 0 var(--mixBlueRed),
+      var(--red) var(--mixBlueRed) var(--mixRedYellow),
+      var(--yellow) var(--mixRedYellow) var(--mixYellowGreen),
+      var(--green) var(--mixYellowGreen) 100%
+    );
+    transform-origin: center;
+    display: inline-block;
+    position: relative;
+    transition: inline-size 0.3s ease, --mixBlueRed 0.5s, --mixRedYellow 0.5s, --mixYellowGreen 0.5s, filter 0.5s;
+    animation: voice 2s ease infinite alternate;
+  }
+  
+  @keyframes voice {
+    0% {
+      --mixBlueRed: 80%;
+      --mixRedYellow: 88%;
+      --mixYellowGreen: 96%;
+      --mixGreenYellow: 100%;
+    }
+    15% {
+      --mixBlueRed: 10%;
+      --mixRedYellow: 70%;
+      --mixYellowGreen: 96%;
+      --mixGreenYellow: 100%;
+    }
+    30% {
+      --mixBlueRed: 10%;
+      --mixRedYellow: 80%;
+      --mixYellowGreen: 96%;
+      --mixGreenYellow: 100%;
+    }
+    45% {
+      --mixBlueRed: 10%;
+      --mixRedYellow: 60%;
+      --mixYellowGreen: 76%;
+      --mixGreenYellow: 50%;
+    }
+    60% {
+      --mixBlueRed: 0%;
+      --mixRedYellow: 10%;
+      --mixYellowGreen: 90%;
+      --mixGreenYellow: 100%;
+    }
+    75% {
+      --mixBlueRed: 0%;
+      --mixRedYellow: 10%;
+      --mixYellowGreen: 20%;
+      --mixGreenYellow: 40%;
+    }
+    100% {
+      --mixBlueRed: 88%;
+      --mixRedYellow: 98%;
+      --mixYellowGreen: 93%;
+      --mixGreenYellow: 100%;
+    }
+  }
+  

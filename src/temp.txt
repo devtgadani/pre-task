@@ -1,0 +1,185 @@
+
+
+// import React, { useRef, useEffect } from 'react';
+// import { gsap } from 'gsap';
+// import './App.css';
+
+// function App() {
+//   const elementRef = useRef(null);
+
+//   useEffect(() => {
+//     const tl = gsap.timeline({
+//       repeat: -1,
+//       yoyo: true,
+//     });
+
+//     tl.to(elementRef.current, {
+//       duration: 3,
+//       rotation: 360,
+//       clipPath: "circle(50% at 50% 50%);",
+//       background: "linear-gradient(135deg, #00ff87 0%, #60efff 100%)",
+//       ease: "power1.inOut"
+//     })
+//     .to(elementRef.current, {
+//       duration: 3,
+//       clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+//       background: "linear-gradient(135deg, #ff0f7b 0%, #f89b29 100%)",
+//       ease: "power1.inOut"
+//     })
+//     .to(elementRef.current, {
+//       duration: 3,
+//       clipPath: "polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%)",
+//       background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+//       ease: "power1.inOut"
+//     });
+
+//     return () => tl.kill();
+//   }, []);
+
+//   return (
+//     <div className="app-container">
+//       <div 
+//         ref={elementRef}
+//         className="animated-element"
+//       />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+div[class] {
+  display:inline-block;
+  width:150px;
+  color:red;
+  margin:20px;
+  filter:url(#round);
+}
+.hexagone::before {
+   content:"";
+   display:block;
+   padding-top:86.6%;
+   background:currentColor;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+.circle::before {
+  content: "";
+  display: block;
+  background: currentColor;
+  width: 400px; /* Adjust as needed */
+  height: 140px; /* Adjust as needed */
+  background: #D9D9D9; /* Example background */
+  clip-path: path("M 0 0 L 397 0 C 485 2 457 135 405 134 L 0 121 C -62 123 -48 2 -1 0");
+
+ 
+}
+
+
+
+.custom::before {
+   content:"";
+   display:block;
+   padding-top:100%;
+   background: conic-gradient(at 53% 47%, orange,pink,purple);
+   clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+}
+
+
+
+
+:root {
+  --gradient-start: skyblue;
+  --gradient-middle-1: lightcoral;
+  --gradient-middle-2: mediumseagreen;
+  --gradient-end: skyblue;
+  --gradient-offset: 0%;
+
+  @property --gradient {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+  }
+}
+
+path {
+  filter:url(#round);
+    fill: linear-gradient(to right, var(--gradient-start) var(--gradient), var(--gradient-middle-1) calc(var(--gradient) + 33%), var(--gradient-middle-2) calc(var(--gradient) + 66%), var(--gradient-end));
+}
+
+/* Keyframes animation for the gradient offset */
+@keyframes gradientAnimation {
+  0% { --gradient: 0%; }
+  100% { --gradient: 100%; }
+}
+
+path {
+  animation: gradientAnimation 6s linear infinite; /* Adjust duration as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React from "react";
+import "./App.css"; // External CSS for styling
+
+function App() {
+  return (
+    <div className="container">
+      <div className="animated-shape" />
+      
+      {/* SVG filter should be outside of the div for accessibility */}
+      <svg xmlns="http://www.w3.org/2000/svg" style={{ visibility: "hidden", position: "absolute", width: "0", height: "0" }}>
+        <defs>
+          <filter id="round">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+import './App.css';
+import App1 from './gsap';
+
+function App() {
+  return (<>
+<div class="main">
+  <div class="base"></div>
+</div>
+
+<svg width="0" height="0">
+<defs>
+        <filter id="round">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />    
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>
+
+
+    </>
+  );
+}
+
+export default App;

@@ -1,0 +1,259 @@
+
+.home-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-width: 100%;
+    min-height: 100vh;
+    position: relative;
+    flex-direction: column;
+    background-color: black;
+    color: whitesmoke;
+    
+   } 
+
+.main{
+    position: relative;
+    background-color: inherit;
+    width:298px;
+          /* height: 700px; */
+
+
+}
+  .building {
+    position: relative; /* Base layer */
+    z-index: 1;
+  }
+  .building.active{
+    animation: scale 0.5s ease 0s 1 normal forwards;
+
+  }
+  
+  .sbuild {
+    position: absolute; /* Overlay on building */
+    /* top: 0px; */
+    left: 62px;
+    z-index: 2;
+   
+  }
+
+    .sbuild.active{
+    animation: shakeRight 0.5s ease 0s 1 normal forwards;
+
+    }
+
+  .home {
+    position: absolute;  /* Positioned above sbuild */
+    bottom: 80px;
+    left: 60px;
+    z-index: 3;
+
+  }
+
+  .home.active{
+    animation: shakeLeft 0.5s ease 0s 1 normal forwards;
+
+
+  }
+  
+  .door {
+    display: none;
+    position: absolute; /* Positioned on home */
+    top: 170px;
+    left: 70px;
+    z-index: 4;
+      }
+
+      .door.active{
+    animation:in 1s ease 0s 1 normal forwards ,shakeLeft 0.5s ease 0s 1 normal forwards;
+
+      }
+  
+  .win1 {
+    display: none;
+
+    position: absolute; /* Window 1 on building */
+    top: 80px;
+    left: 120px;
+    z-index: 5;
+  }
+  .win1.active , .win2.active{
+    animation:  in 1s ease 0s 1 normal forwards ,shakeRight 0.5s ease 0s 1 normal forwards;
+
+
+  }
+  
+  .win2 {
+    display: none;
+
+    position: absolute; /* Window 2 on building */
+    top: 80px;
+    left: 180px;
+    z-index: 5;
+    /* animation:in 1s ease 0s 1 normal forwards ,shakeRight 0.5s ease 0s 1 normal forwards ; */
+    }
+  
+ .door.active,.win2.active,.win1.active{
+    display: block;
+
+}
+
+
+  @keyframes scale {
+      0%,
+    
+      100% {
+          /* transform: scale(0); */
+      }
+  
+    
+      75% {
+        transform: scale(1.1) translateY(-20px);
+
+      }
+  }
+  
+/*    */
+
+@keyframes in {
+	0%,
+
+	100% {
+		opacity: 0;
+	}
+
+	
+	50% {
+		opacity: 1;
+	}
+}
+  
+  @keyframes shakeLeft {
+      0%,100%
+       {
+          transform: rotate(0deg) ;
+          transform-origin: 0 50%;
+      }
+  
+  
+  
+      70% { 
+          transform: rotate(-4deg);
+      }
+  
+  }
+  
+  @keyframes shakeRight {
+	0%,
+	100% {
+		transform: translateY(0) rotate(0);
+		transform-origin: 50% 50%;
+    }
+	75% {
+		transform: translateY(-28px) rotate(3.5deg);
+	}
+}
+
+
+
+
+
+/* profile pic
+ */
+
+
+
+ .main-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    color: whitesmoke;
+    position: relative;
+    background-color: black;
+
+ }
+ .text-h1{
+
+padding-bottom:50px ;
+
+ }
+
+ .pic{
+
+    width: 250px;
+    height: 250px;
+    clip-path: circle(50% at 50% 50%);
+    aspect-ratio: 1;
+    background-image: url("./Crop_20190730_222445.jpg");
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    animation: jellyR 3s  ease 0s 1 normal forwards , jellyl 3s ease 0s 1 normal forwards;
+
+
+ }
+
+ @keyframes jellyl {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	40% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	50% {
+		transform: scale3d(0.85, 1.15, 1);
+	}
+
+	65% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	75% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
+ @keyframes jellyR {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}

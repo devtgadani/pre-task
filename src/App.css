@@ -1,0 +1,322 @@
+:root {
+  --purple:oklch(54.24% 0.2486 313.58);
+  --pink:oklch(64.75% 0.293 323.36);
+}
+
+.kml-container{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  min-width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: black;
+  color:whitesmoke;
+  
+}
+
+
+.main{
+
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: whitesmoke;
+  text-align: center;
+  min-width: 100Vh;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+
+.text-setteper{
+color: black;
+  padding-bottom:50px ;
+  
+   }
+.main-logo{
+
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: whitesmoke;
+  text-align: center;
+  min-width: 100Vh;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+/* position: relative; */
+}
+
+
+.container {
+  filter: url(#round);
+  position: relative;
+  width: 200px;
+}
+
+.circle {
+  width: 200px;
+  aspect-ratio: 1;
+  position: relative;
+  display: inline-block;
+
+  background: linear-gradient(
+    to right,
+    var(--pink) 0% var(--mixPinkPurple),
+    var(--purple) var(--mixPurplePink) 100%
+  );
+  /* background: linear-gradient(red, blue); */
+  filter: url(#round);
+  clip-path: circle(50% at 50% 50%);
+  opacity: 0;
+
+
+
+} 
+
+@property --mixPinkPurple {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 25%;
+}
+
+@property --mixPurplePink {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --mixPP{
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+ .animate{
+  opacity: 1;
+   animation: rotate 3s linear 0s 10, 
+            changeClipPath 3s cubic-bezier(0.12, 0, 0.39, 0) 0s 10;
+}
+.icon {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 100px;
+  transition: transform 0.3s ease;
+  cursor: pointer; /* Shows hand cursor on hover */
+  opacity: 1;
+}
+
+.animate-icon{
+  transform-origin: center;
+   animation: rotate-rev 1s linear  ;
+} 
+
+.animate-reversed{
+  transform-origin: center;
+  animation: rotate 1s linear  ;
+}
+
+@keyframes rotate-rev {
+  from { transform:rotate(360deg)  }
+    to { transform:rotate(0deg) }
+  }
+
+
+
+
+  @keyframes rotate {
+  from { transform:rotate(0deg)  }
+    to { transform:rotate(360deg) }
+  }
+
+@keyframes changeClipPath {
+  0%,100%{
+    /* 8points */
+    clip-path: circle(50% at 50% 50%);
+    --mixPinkPurple: 100%; /* Shift gradient to create a dynamic effect */
+  --mixPurplePink: 20%;
+
+  }  80%{
+    /* 8points */
+    clip-path: polygon(99.19% 58.98%,82.76% 71.16%,78.43% 91.13%,58.21% 88.13%,41.02% 99.19%,28.84% 82.76%,8.87% 78.43%,11.87% 58.21%,0.81% 41.02%,17.24% 28.84%,21.57% 8.87%,41.79% 11.87%,58.98% 0.81%,71.16% 17.24%,91.13% 21.57%,88.13% 41.79%);
+    --mixPinkPurple: 50%; /* Shift gradient to create a dynamic effect */
+    --mixPurplePink: 20%;
+  }
+  66%{
+    /* 6points */
+    clip-path: polygon(98.56% 61.93%,78.15% 76.99%,63.95% 98.01%,40.7% 87.87%,15.39% 86.09%,12.55% 60.88%,1.44% 38.07%,21.85% 23.01%,36.05% 1.99%,59.3% 12.13%,84.61% 13.91%,87.45% 39.12%);
+    --mixPinkPurple:20%; /* Shift gradient to create a dynamic effect */
+    --mixPurplePink: 50%;
+  }
+33%{
+  --mixPinkPurple: 20%; /* Shift gradient to create a dynamic effect */
+  --mixPurplePink: 80%;
+    clip-path: polygon(99.19% 58.98%,82.76% 71.16%,78.43% 91.13%,58.21% 88.13%,41.02% 99.19%,28.84% 82.76%,8.87% 78.43%,11.87% 58.21%,0.81% 41.02%,17.24% 28.84%,21.57% 8.87%,41.79% 11.87%,58.98% 0.81%,71.16% 17.24%,91.13% 21.57%,88.13% 41.79%);
+
+  }
+}
+
+.navigation-buttons{
+  position: absolute;
+  bottom:0;
+  display: flex;
+ justify-content: space-between;
+  width: 100%;
+
+
+
+}
+
+
+
+.button-nav {
+  height: 45px;
+  width: 250px;
+  margin: 20px;;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-family: Helvetica;
+
+  background-image: linear-gradient(to right, #f00090, #861fed);
+  color: #fff;
+}     
+
+.button-nav:hover {
+  -webkit-filter: brightness(88%);
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.kml-button {
+  height: 45px;
+  width: 150px;
+  /* margin: 125px;; */
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-family: Helvetica;
+
+  background-image: linear-gradient(to right, #f00090, #861fed);
+  color: #fff;
+}     
+
+.button-nav:hover {
+  filter: brightness(88%);
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+/* Stepper Styles */
+
+.stepperContainer {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #c0c0c0 ;
+  /* color: white; */
+}
+
+.stepperWrapper {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 24px 0;
+  gap: 20px; /* Add spacing between steps */
+}
+
+.step {
+  display: flex;
+  align-items: center;
+}
+
+.stepCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.stepLabel {
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #2563eb;
+}
+
+
+.stepStatus{
+  font-size: 12px;
+
+}
+.stepStatus.completed{
+  color:#2563eb;
+}
+
+.stepStatus.pending{
+  color: gray;
+}
+/* Connector Lines */
+.connectorLine {
+  height: 10px;
+  width: 150px;
+  background-color: #d1d5db;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.connectorLineActive::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #2563eb;
+  animation: growLine 0.5s ease-in-out forwards;
+}
+
+.connectorLineInactive {
+  background-color: #d1d5db;
+}
+
+/* Animation for the line growing from left to right */
+@keyframes growLine {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+

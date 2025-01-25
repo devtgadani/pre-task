@@ -1,0 +1,142 @@
+.container-bell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    position: relative;
+    color: whitesmoke;
+    background-color: black;
+    perspective: 1500px;
+  }
+  
+  .bell  {
+    position: relative;
+   
+    transition: all 0.3s ease, bottom 0.3s ease; 
+    /* background-color: white; */
+
+
+
+    }
+    
+    .bell.clicked-tilt  {
+   
+        transform-style: preserve-3d;
+    }
+
+
+    .bell.clicked{
+        
+    animation: bell 1s linear 0s 1 normal both;
+    }
+  
+  .bell.clicked::before{
+    bottom:-30px;
+  
+animation: bell 0.9s linear 0s 1 normal both, bellBottom  0.9s linear 0s 1 normal both; 
+ }
+
+
+ .bell.clicked::after {
+    height: 17px;
+    bottom: -19px;
+  }
+  
+  
+
+  .bell::after {
+    content: " ";
+    position: absolute;
+clip-path: ellipse(49% 33% at 50% 50%);
+    border-radius: 100%;
+    width: 121px;
+    left: -1px;
+    height: 0px;
+    border: 18px solid rgb(255, 255, 255);
+    bottom: -11px;
+    /* background-color: transparent; */
+}
+  
+  
+ 
+
+
+  .bell::before{
+    content: " ";
+    position: absolute;
+    /* clip-path: ellipse(49% 35% at 50% 50%); */
+    border-radius: 100%;
+    width: 29px;
+    left: 69px;
+    height: 15px;
+    border-left: 3px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 48px solid white;
+    /* border-top: 5px solid white; */
+    bottom: -61px;
+    background-color: #ffffff0f;
+
+  }
+
+
+  @keyframes bell {
+	0%,
+	100% {
+		transform: rotate(0deg)  rotateX(30deg) rotateY(0deg) translateY(-30px);
+		transform-origin: 50% 0;
+	}
+
+	10% {
+		transform: rotate(2deg) rotateX(30deg) rotateY(0deg) translateY(-30px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-4deg) rotateX(30deg) rotateY(0deg) translateY(-30px);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(4deg) rotateX(30deg) rotateY(0deg) translateY(-30px);
+	}
+
+	80% {
+		transform: rotate(-2deg) rotateX(30deg) rotateY(0deg) translateY(-30px);
+	}
+
+	90% {
+		transform: rotate(2deg) rotateX(30deg) rotateY(0deg) translateY(-30px);
+	}
+  }
+    @keyframes bellBottom {
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+    
+        10%,
+        30%,
+        50%,
+        70% {
+            transform: translateX(-30px);
+        }
+    
+        20%,
+        40%,
+        60% {
+            transform: translateX(30px);
+        }
+    
+        80% {
+            transform: translateX(10px);
+        }
+    
+        90% {
+            transform: translateX(-10px);
+        }
+    }
