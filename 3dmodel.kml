@@ -1,0 +1,17 @@
+<Placemark>
+    <name>3D Model</name>
+    <Model>
+        <Location>
+            <longitude>72.59</longitude> <latitude>23.02</latitude>
+        </Location>
+        <Orientation>
+            <heading>0</heading> <tilt>0</tilt> <roll>0</roll>
+        </Orientation>
+        <Scale>
+            <x>1</x> <y>1</y> <z>1</z>
+        </Scale>
+        <Link>
+            <href>https://github.com/devtgadani/kml-dataimg/blob/85363f57fdd9d050cb12d4e81ad7cb402ac984a1/Cabin.dae?raw=true</href>
+        </Link>
+    </Model>
+</Placemark>
