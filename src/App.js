@@ -61,7 +61,7 @@ export default function App() {
                 setPages(
                     <div className="main-logo">
                         <div>Click the icon to see the effect or use the buttons below to navigate:</div>
-                        <div className="container">
+                        <div className={`container  ${animation ? "animatecon" : ""}`}>
                             <div className={`circle ${animation ? "animate" : ""}`}></div>
                             <div
                                 className={`icon ${animation ? "animate-icon" : "animate-reversed"}`}

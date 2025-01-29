@@ -178,6 +178,24 @@
     background-color: black;
 
  }
+
+ @media (max-width: 575.98px) {
+  /* Add styles for extra small devices */
+.main{
+
+
+
+  min-width: 100%;
+ 
+  gap: 7px;
+}
+
+
+
+
+}
+
+
  .text-h1{
 
 padding-bottom:50px ;
